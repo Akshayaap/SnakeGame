@@ -3,7 +3,9 @@ package com;
 public class Main {
 
     public static void main(String[] args) {
-        Snake snake=new Snake(7);
+        int size = 7;
+
+        Snake snake=new Snake(size);
         Runner runner=new Runner(snake);
         runner.start();
     }

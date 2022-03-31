@@ -44,12 +44,11 @@ public class Snake {
             // snake[i].setFocusTraversalKeysEnabled(true);
         }
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        // System.out.println(screenSize.width+" "+screenSize.height);
         this.screenWidth = screenSize.width;
         this.screenHeight = screenSize.height;
     }
 
-    public void stepForward(int a) {
+    public void stepForward() {
         X[lastPtr] = X[firstPtr] + dx;
         Y[lastPtr] = Y[firstPtr] + dy;
 
