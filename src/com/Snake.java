@@ -1,6 +1,7 @@
 package com;
 
 import java.util.PrimitiveIterator;
+import java.awt.Color;
 
 import javax.swing.*;
 
@@ -25,7 +26,7 @@ public class Snake {
         this.X = new int[length];
         this.Y = new int[length];
         for (int i = 0; i < length; i++) {
-            X[i] = i * 100 + 200;
+            X[i] = i * 100 + 100;
             Y[i] = 100;
             snake[i] = new JFrame(i + " frame");
             snake[i].setVisible(true);
@@ -40,7 +41,6 @@ public class Snake {
 
         }
         snake[0].setSize(80, 80);
-
     }
 
     public void stepForward() {
@@ -72,12 +72,12 @@ public class Snake {
     }
 
     public void up() {
-        dy = -100;
+        dy = -50;
         dx = 0;
     }
 
     public void down() {
-        dy = 100;
+        dy = 50;
         dx = 0;
     }
 
