@@ -8,12 +8,14 @@ public class Main {
         try {
             if(args[0].equals("auto")){
                 Snake snake=new Snake(size);
-                Runner runner=new Runner(snake, true);
+                Runner runner=new Runner(snake);
+                Direction direction=new Direction(snake);
                 runner.start();
+                direction.start();
             }
         } catch (IndexOutOfBoundsException e) {
                 Snake snake=new Snake(size);
-                Runner runner=new Runner(snake, false);
+                Runner runner=new Runner(snake);
                 runner.start();
         }
     }
