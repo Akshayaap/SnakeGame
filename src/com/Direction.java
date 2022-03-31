@@ -14,7 +14,7 @@ public class Direction extends Thread {
         Random rand = new Random();
         while (true) {
             try {
-                Thread.sleep(rand.nextInt(10)*1000);
+                Thread.sleep(rand.nextInt(25)*100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -24,7 +24,7 @@ public class Direction extends Thread {
                 case 0: this.snake.up(); break;
                 case 1: this.snake.left(); break;
                 case 2: this.snake.down(); break;
-                case 3: this.snake.right() break;
+                case 3: this.snake.right(); break;
                 default:;break;
             }
         }

@@ -14,9 +14,9 @@ public class Main {
                 direction.start();
             }
         } catch (IndexOutOfBoundsException e) {
-                Snake snake=new Snake(size);
-                Runner runner=new Runner(snake);
-                runner.start();
+            Snake snake=new Snake(size);
+            Runner runner=new Runner(snake);
+            runner.start();
         }
     }
 }
