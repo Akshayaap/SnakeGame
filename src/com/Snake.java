@@ -2,6 +2,8 @@ package com;
 
 import java.util.PrimitiveIterator;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.*;
 
@@ -15,6 +17,8 @@ public class Snake {
     private int dy = 0;
     private int lastPtr;
     private int firstPtr = 0;
+    private int screenWidth;
+    private int screenHeight;
 
     private Input input;
 
@@ -30,39 +34,46 @@ public class Snake {
             Y[i] = 100;
             snake[i] = new JFrame(i + " frame");
             snake[i].setVisible(true);
-            snake[i].setSize(80, 80);
+            snake[i].setSize(40, 100);
             snake[i].setResizable(false);
             snake[i].setLocation(X[i], Y[i]);
             snake[i].setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             snake[i].addKeyListener(input);
 
-            snake[i].setFocusable(true);
-            snake[i].setFocusTraversalKeysEnabled(true);
-
+            // snake[i].setFocusable(true);
+            // snake[i].setFocusTraversalKeysEnabled(true);
         }
-        snake[0].setSize(80, 80);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        // System.out.println(screenSize.width+" "+screenSize.height);
+        this.screenWidth = screenSize.width;
+        this.screenHeight = screenSize.height;
     }
 
-    public void stepForward() {
-
+    public void stepForward(int a) {
         X[lastPtr] = X[firstPtr] + dx;
         Y[lastPtr] = Y[firstPtr] + dy;
 
-        if (X[lastPtr] > 1200) {
-            X[lastPtr] = 200;
+        if (X[lastPtr] > this.screenWidth) {
+            X[lastPtr] = 0;
         }
-        if (X[lastPtr] < 200) {
-            X[lastPtr] = 1200;
-        }
-
-        if (Y[lastPtr] < 100) {
-            Y[lastPtr] = 600;
+        if (X[lastPtr] < 0) {
+            X[lastPtr] = this.screenWidth;
         }
 
-        if (Y[lastPtr] > 600) {
-            Y[lastPtr] = 100;
+        if (Y[lastPtr] < 0) {
+            Y[lastPtr] = this.screenHeight;
+        }
+
+        if (Y[lastPtr] > this.screenHeight) {
+            Y[lastPtr] = 0;
         }
         this.snake[lastPtr].setLocation(X[lastPtr], Y[lastPtr]);
+
+        // this.snake[firstPtr].setSize(40, 100);
+        // this.snake[lastPtr].setSize(40,100);
+        // this.snake[lastPtr].getContentPane().setBackground(Color.BLUE);
+        // this.snake[firstPtr].getContentPane().setBackground(Color.white);
+
         firstPtr = lastPtr--;
 
         if (lastPtr < 0) {

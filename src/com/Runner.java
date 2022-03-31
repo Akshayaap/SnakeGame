@@ -10,9 +10,10 @@ public class Runner extends Thread {
 
     @Override
     public void run() {
+        int a = 0;
         while (true) {
-
-            snake.stepForward();
+            a = (a+1)%7;
+            snake.stepForward(a);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
