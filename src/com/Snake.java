@@ -68,11 +68,6 @@ public class Snake {
         }
         this.snake[lastPtr].setLocation(X[lastPtr], Y[lastPtr]);
 
-        // this.snake[firstPtr].setSize(40, 100);
-        // this.snake[lastPtr].setSize(40,100);
-        // this.snake[lastPtr].getContentPane().setBackground(Color.BLUE);
-        // this.snake[firstPtr].getContentPane().setBackground(Color.white);
-
         firstPtr = lastPtr--;
 
         if (lastPtr < 0) {
